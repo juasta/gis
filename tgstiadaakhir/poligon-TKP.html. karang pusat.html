@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <center><font size="80" face="Aharoni">Poligon Kec. Tj. Karang Pusat </font></center>
+    <style>
+        #map{
+            height: 500px;
+            width: 100%;
+            background: rgb(202, 199, 199);
+        }
+        #save{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <!-- latitude<input type="text" id="latitude">
+    longitude<input type="text" id="latitude"> -->
+    <p>
+        Tj. Karang Barat adalah sebuah kecamatan di Kota Bandar Lampung <br>
+        Kecamatan Tj. Karang Barat terdiri atas 7 kelurahan, antara lain : <br>
+        1. Durian Payung, dengan kode pos 35116<br>
+        2. Gotong Royong, dengan kode pos 35119<br>
+        3. Kaliawi, dengan kode pos 35115<br>
+        4. Kaliawi Persada, dengan kode pos 35115<br>
+        5. Kelapa Tiga, dengan kode pos 35114<br>
+        6. Palapa, dengan kode pos 35116<br>
+        7. Pasir Gintung, dengan kode pos 35113<br>
+        </p>
+            
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyCyHHttONLAjN-Z6XI-jNv6R8FJ7ijU6uw",
+    authDomain: "poligon-tj-karang-pusat.firebaseapp.com",
+    databaseURL: "https://poligon-tj-karang-pusat.firebaseio.com",
+    projectId: "poligon-tj-karang-pusat",
+    storageBucket: "",
+    messagingSenderId: "522118696253"
+  };
+  firebase.initializeApp(config);
+
+var db              = firebase.database();
+var dataRef         = db.ref('perumahancluster');
+var newPolygon      = null;
+var arrayPolygon    = [];
+var map             = null;
+var coords          = [];
+var markers         = [];
+var center          = {lat:-5.414813,lng:105.250752}; 
+
+dataRef.on('value', updateInfo, showErr);
+
+function initMap(){
+    map=new google.maps.Map(document.getElementById('map'),{
+        zoom:13,
+        center:center
+    });
+
+    map.addListener('click', function (e) {
+        var latLng = e.latLng;
+        coords.push({lat: latLng.lat(), lng: latLng.lng()});
+        markers.push(createMarker({lat: latLng.lat(), lng: latLng.lng()}));
+    });
+}
+
+function createMarker(coord){
+    var marker = new google.maps.Marker(
+        {
+            position:coord,
+            map: map
+        }
+    );
+    return marker;
+}
+
+document.getElementById("save").addEventListener("click",function(){
+    var lines = {points:coords};
+    arrayPolygon.forEach(function(data) {
+        data.setMap(null);
+    });
+    markers.forEach(function(data){
+        data.setMap(null);
+    });
+
+    dataRef.push(
+        {
+            type: 'polyline',
+            geometry: lines
+        }
+    );
+    coords = [];
+});
+
+function updateInfo(data){
+    data.forEach(function(datamarker) {
+        arrayPolygon.push(createPolygon(datamarker.val().geometry.points));
+    });
+}
+function showErr(err){
+    console.log(err);
+}
+
+function createPolygon(coord){
+    var tempPoly = new google.maps.Polygon({
+        paths: coord,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#0000FF',
+        fillOpacity: 0.35
+    });
+    tempPoly.setMap(map);
+    return tempPoly;
+}
+function updateInfo(data){
+    data.forEach(function(datamarker) {
+        arrayPolygon.push(createPolygon(datamarker.val().geometry.points));
+    });
+}
+function showErr(err){
+    console.log(err);
+}
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSG8IIzRHZEsGLxJsXzifx4XSbASLU8gw&callback=initMap"></script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <center><font size="80" face="Aharoni">Poligon Kec. Kedamaian</font></center>
+
+    <style>
+        #map{
+            height: 450px;
+            width: 100%;
+            background: rgb(202, 199, 199);
+        }
+        #save{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <!-- latitude<input type="text" id="latitude">
+    longitude<input type="text" id="latitude"> -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA2ZPc949EFMTmr-G9_h62yfbarermXfeM",
+    authDomain: "sigprak-e1936.firebaseapp.com",
+    databaseURL: "https://sigprak-e1936.firebaseio.com",
+    projectId: "sigprak-e1936",
+    storageBucket: "sigprak-e1936.appspot.com",
+    messagingSenderId: "62595149343"
+  };
+  firebase.initializeApp(config);
+
+var db              = firebase.database();
+var dataRef         = db.ref('perumahancluster');
+var newPolygon      = null;
+var arrayPolygon    = [];
+var map             = null;
+var coords          = [];
+var markers         = [];
+var center          = {lat:-5.394995,  lng:105.266486}; 
+
+dataRef.on('value', updateInfo, showErr);
+
+function initMap(){
+    map=new google.maps.Map(document.getElementById('map'),{
+        zoom:13,
+        center:center
+    });
+
+    map.addListener('click', function (e) {
+        var latLng = e.latLng;
+        coords.push({lat: latLng.lat(), lng: latLng.lng()});
+        markers.push(createMarker({lat: latLng.lat(), lng: latLng.lng()}));
+    });
+}
+
+function createMarker(coord){
+    var marker = new google.maps.Marker(
+        {
+            position:coord,
+            map: map
+        }
+    );
+    return marker;
+}
+
+document.getElementById("save").addEventListener("click",function(){
+    var lines = {points:coords};
+    arrayPolygon.forEach(function(data) {
+        data.setMap(null);
+    });
+    markers.forEach(function(data){
+        data.setMap(null);
+    });
+
+    dataRef.push(
+        {
+            type: 'polyline',
+            geometry: lines
+        }
+    );
+    coords = [];
+});
+
+function updateInfo(data){
+    data.forEach(function(datamarker) {
+        arrayPolygon.push(createPolygon(datamarker.val().geometry.points));
+    });
+}
+function showErr(err){
+    console.log(err);
+}
+
+function createPolygon(coord){
+    var tempPoly = new google.maps.Polygon({
+        paths: coord,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#0000FF',
+        fillOpacity: 0.35
+    });
+    tempPoly.setMap(map);
+    return tempPoly;
+}
+function updateInfo(data){
+    data.forEach(function(datamarker) {
+        arrayPolygon.push(createPolygon(datamarker.val().geometry.points));
+    });
+}
+function showErr(err){
+    console.log(err);
+}
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSG8IIzRHZEsGLxJsXzifx4XSbASLU8gw&callback=initMap"></script>
+</body>
+<P> Kedamaian adalah sebuah kecamatan di Kota Bandar Lampung <br>
+        Kecamatan Kedamaian terdiri atas 7 kelurahan, antara lain : <br>
+        1. Kedamaian, dengan kode pos 35122<br>
+        2. Bumi Kedamaian, dengan kode pos 35122<br>
+        3. Tanjung Agung Raya, dengan kode pos 35129 <br>
+        4. Tanjung Baru, dengan kode pos 35133<br>
+        5. Kalibalau Kencana, dengan kode pos 35132<b></b>
+        6. Tanjung Raya, dengan kode pos 35128<br>
+        7. Tanjung Gading, dengan kode pos 35128<br>
+    
+    </P>
+</html>

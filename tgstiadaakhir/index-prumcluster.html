@@ -1,0 +1,56 @@
+<html>  
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Sistem Informasi Geografis Perumahan Cluster</title>
+            <link rel="stylesheet" href="src/style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="header">Sistem Informasi Geografis Perumahan Cluster</h1>
+            <div class="wrapper animated bounceInLeft">
+                <div class="menu">
+                    <ul>
+                        <li><a href="?">Home</a></li>
+                        <li><a href="?">View All Data</a></li>
+                        <li><a href="?">Daftar Kecamatan</a></li>
+                        <li><a href="?">Daftar Perumahan</a></li>
+                    </ul>
+                </div>
+                <div class="add-marker">         
+                <div class="map" id="map"></div>
+                <div class="myloc" id="myloc"></div>
+                 <h3>Input Data Marker</h3>
+                    <form>
+                        <p>
+                            <label>Lat</label>
+                            <input type="text" name="lat" id="lat">
+                        </p>
+                        <p>
+                            <label>Lng</label>
+                            <input type="text" name="lng" id="lng">
+                        </p>
+                        <p class="full">
+                            <label>Info Marker</label>
+                            <textarea name="info" name="info" id="info"  rows="5"></textarea>
+                        </p>
+                        <p class="full">
+                            <div class="alert" id="alert">Data sudah disimpan</div>
+                        </p>
+                        <p class="full">
+                            <input class="button" id="save" type="button" value="save">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSG8IIzRHZEsGLxJsXzifx4XSbASLU8gw&callback=initMap"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="src/markerclusterer.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/currentlocation.js"></script>
+</html>

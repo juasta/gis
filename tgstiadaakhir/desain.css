@@ -1,0 +1,13 @@
+#map {
+    background-color: red;
+    width: 100%;
+    height: 400px;
+}
+.warna {
+width:auto;
+height: 20px;
+background-color: aqua;
+color: whitesmoke;
+padding: 50px;
+}
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Geojson Perumahann Cluster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+     #map {
+                    
+                    width: 100%;
+                    height: 600px;
+                }
+    </style>
+</head>
+<body>
+     <div id='cssmenu'>
+
+</div>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+    <div id = "map"></div>
+    <script>  
+
+
+            function initialize(){
+                var mapOptions = {
+                    zoom:9,
+                    center: new google.maps.LatLng(-5.4284046, 105.2006967),
+                };
+                map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                
+                infoWindow = new google.maps.InfoWindow();
+                var infowindow = new google.maps.InfoWindow();
+                
+                var contentString;
+                infowindow.setContent(contentString);
+              
+                var marker = new google.maps.Marker();
+                marker.addListener('click',function(){
+                    infowindow.open(map,marker);
+              ``});
+                marker.setMap(map);
+                
+                var infoWin = new google.maps.InfoWindow();
+                var labels = 'Bandar Lampung';
+                    
+                var markers = locations.map(function(location, i) {
+                    var marker = new google.maps.Marker({
+                        icon : 'gambar1.png',
+                        size : 1,
+                        position: location,
+                        label: labels[i % labels.length]
+                    });
+                    google.maps.event.addListener(marker, 'click', function(evt) {
+                        infoWin.setContent(location.info);
+                        infoWin.open(map, marker);
+                    })
+                    return marker;
+                }); 
+                
+                console.log(locations);
+                console.log(markers);
+            
+                var markerCluster = new MarkerClusterer(map, markers,
+                    {imagePath: 'images/m'});
+                    
+                var d = markerCluster.distanceBetweenPoints_(markers[2].getPosition(),markers[4].getPosition());
+                console.log(markerCluster.getCalculator());
+            
+                }
+                
+                function showArrays(event) {
+                    var vertices = this.getPath();
+                    var contentString = '<b>' + this.name + '</b>';
+                    infoWindow.setPosition(event.latLng);
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+            
+                 var locations = [
+                 {lat: -5.393219, 	lng: 105.244001, info: "Perumah Cluster Alam Intan"},
+                    {lat:  -5.381538, 	lng: 105.259341, info: "Perumah Cluster Pujangga Alam Garden" },
+                    {lat: -5.382941, 	lng: 105.210818, info: "Perumah Cluster Citra Mas"},
+                    {lat: -5.384372, 	lng: 105.210113, info: "Perumah Cluster Harmonia Residence"},
+                    {lat: -5.384150, 	lng: 105.210531, info: "Perumah Cluster Harmonia Residence"},
+                    {lat:  -5.376364, 	lng: 105.265167, info: "Perumah Cluster Palmyra Residence"},
+                    {lat: -5.368222, 	lng: 105.255929, info: "Perumah Cluster Perumahan Taman Suropati"},
+                    {lat:  -5.393245, 	lng: 105.232352, info: "Perumah Cluster Griya Resik"},
+                    {lat: -5.381981, 	lng: 105.224443, info: "Perumah Cluster Bukit Pramuka"},
+                    {lat: -5.369890, 	lng: 105.219924, info: "Perumah Cluster Casalira Residence"},
+                    {lat: -5.348127, 	lng: 105.242532, info: "Perumah Cluster Rara Estate"},
+                    {lat: -5.398916, 	lng: 105.320760, info: "Perumah Cluster Puri Rupi Indah"},
+                    {lat: -5.399362, 	lng: 105.317385, info: "Perumah Cluster Perum Puri Hijau"},
+                    {lat: -5.385304,	lng: 105.315066, info: "Perumah Cluster Arum Lestari Permai 5"},
+                    {lat: -5.393921,	lng: 105.278518, info: "Perumah Cluster Morotai Mas Residence"},
+                    {lat: -5.385361, 	lng: 105.248484, info: "Perumah Cluster Alpabenia Residence Lampung"},
+                    {lat: -5.416528, 	lng: 105.231303, info: "Perumah Cluster Royal Garden Bandar Lampung"},
+                    {lat: -5.418230, 	lng: 105.245131, info: "Perumah Cluster Palapa Mansion"},
+                    {lat: -5.430342, 	lng: 105.281487, info: "Perumah Cluster Bukit Alam Surya Residence"},
+                    {lat: -5.416004, 	lng: 105.271782, info: "Perumah Cluster Klutum City"},
+                    {lat: -5.353898, 	lng: 105.275330, info: "Perumah Cluster Pualam Magek Residence"},
+                    {lat: -5.357816, 	lng: 105.269004, info: "Perumah Cluster Griya Padi"},
+                    {lat: -5.445464, 	lng: 105.247505, info: "Perumah Cluster Perumahan Citra Garden"},
+                    {lat: -5.469460, 	lng: 105.244382, info: "Perumah Cluster Emerald Hill Residence"},
+                    {lat: -5.429207, 	lng: 105.237705, info: "Perumah Cluster Citraland "},
+                    {lat: -5.457987, 	lng: 105.245215, info: "Perumah Cluster Perumahan Teguh Sentosa"},
+                  ]
+            </script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSG8IIzRHZEsGLxJsXzifx4XSbASLU8gw&callback=initMap"></script>
+        <script>  
+        var map = null;
+        var center = {lat: -5.387218, lng: 105.261122};
+        var infowindow;
+
+        var config = {
+    apiKey: "AIzaSyBQMQuwOhtqgFO8FaFAKRxwoN2c_7YRtbw",
+    authDomain: "geojsonprumcluster.firebaseapp.com",
+    databaseURL: "https://geojsonprumcluster.firebaseio.com",
+    projectId: "geojsonprumcluster",
+    storageBucket: "geojsonprumcluster.appspot.com",
+    messagingSenderId: "1004793493499"
+        };    
+              firebase.initializeApp(config);
+
+              var db = firebase.database();
+              var dataRef = db.ref('bandar_lampung');
+
+              dataRef.on('value', showData, showError);
+              function showData(data){
+                  //console.log(data.val());
+                  map.data.addGeoJson(data.val());
+                  map.data.setStyle({
+                      fillColor:'#4000ff',
+                      strokeWeight: 0.2
+                  });
+                  map.data.addListener('click', function (event){
+                      infoWindowContent = event.feature.getProperty('DESA')+"<br>"+event.feature.getProperty('KECAMATAN');
+                      infowindow.setContent(infoWindowContent);
+                      infowindow.setPosition(event.latLng);
+                      infowindow.open(map);
+                  });
+                
+              }
+              function showError(err){
+                  console.log(err.val());
+              }
+
+              function initMap(){
+                  map = new google.maps.Map(document.getElementById('map'),{
+                      zoom: 10,
+                      center: center
+                  });
+                  infowindow = new google.maps.InfoWindow();
+              }
+            </script> 
+            <script src="src/markerclusterer.js"></script>
+
+</body>
+</html>

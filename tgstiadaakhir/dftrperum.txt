@@ -1,0 +1,116 @@
+Kedamaian	Cluster Alam Intan	
+Jl. Mata Intan, Segala Mider, Tj. Karang Bar., Kota Bandar Lampung, Lampung 35111
+-5.393219, 105.244001
+
+Kedaton		Pujangga Alam Garden
+JL. Nusantara, Labuhan Ratu, Kedaton, Kota Bandar Lampung, Lampung 35132
+-5.381538, 105.259341
+		
+Kemiling	Perum Cluster Citramas
+Jl. Bukit Kemiling Permai Raya, Kemiling Permai, Kemiling, Bandar Lampung City, Lampung 35152
+-5.382941, 105.210818
+		Harmonia Residence
+jalan bukit kemiling permai, Kemiling Permai, Kemiling, Kota Bandar Lampung, Lampung 35152
+-5.384372, 105.210113
+
+Labuhan Ratu	Palmyra Residence
+Jl. Sultan H. No.53, Sepang Jaya, Kedaton, Kota Bandar Lampung, Lampung 35132
+-5.377285, 105.265259
+		Perumahan Taman Suropati
+Labuhan Ratu, Kedaton, Kota Bandar Lampung, Lampung 35141
+-5.368222, 105.255929
+
+Langkapura	Perumahan Griya Resik
+Langkapura, Kota Bandar Lampung, Lampung 35113
+-5.393245, 105.232352
+		perumahan bukit pramuka
+Jl. Penggalang, Langkapura, Bandar Lampung City, Lampung 35151
+-5.381981, 105.224443
+
+Rajabasa	Casalira Residence
+Jl. Raden Gunawan No.2, Rajabasa, Rajabasa, Bandar Lampung, Kota Bandar Lampung, Lampung 35145
+-5.370016, 105.219924
+		Rara Estate
+Rajabasa Raya, Rajabasa, Kota Bandar Lampung, Lampung 35142
+-5.348127, 105.242532
+
+Sukabumi	Perum Puri Rupi Indah
+Jl. Pulau Singkep, Sukabumi, Kec. Sukabumi, Kota Bandar Lampung, Lampung 35122
+-5.398916, 105.320760
+		Perum Puri Hijau
+Jl. Amd, Sukabumi, Sukabumi Sub-District, Bandar Lampung City, Lampung 35122
+-5.399362, 105.317385
+
+Sukarame	Perumahan Arum Lestari Permai 5
+Jl. Pulau Singkep, Sukarame, Bandar Lampung City, Lampung 35131
+-5.385304, 105.315066
+		Morotai Mas Residence
+Jl. Pulau Morotai, Jagabaya III, Way Halim, Kota Bandar Lampung, Lampung 35136
+-5.393921, 105.278518
+
+Tanjung Karang Barat	Alpabenia Residence Lampung
+Jl. Bahagia, Segala Mider, Tj. Karang Bar., Kota Bandar Lampung, Lampung 35132
+-5.385361, 105.248484
+			perumahan Royal Garden Bandar Lampung
+Sukadana Ham, West Tanjung Karang, Bandar Lampung City, Lampung 35215
+-5.416528, 105.231303
+
+Tanjung Karang Pusat	Palapa Mansion
+Durian Payung, Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35119
+-5.418230, 105.245131	
+
+Tanjung Karang Timur	Bukit Alam Surya Residence
+Jalan Bukit Alam Surya, Tanjung Karang Timur, Tj. Gading, Kedamaian, Kota Bandar Lampung, Lampung 35226
+-5.430342, 105.281487
+			Klutum City Cluster / Masjid Assolihin
+Jl. Bukit No.32, Kota Baru, Tj. Karang Tim., Kota Bandar Lampung, Lampung 35128
+-5.416004, 105.271782
+
+Tanjung Senang		Pualam Magek Residence
+Jl. Moh. Yunus, Way Kandis, Tanjung Senang, Bandar Lampung City, Lampung 35135
+-5.353898, 105.275330
+			Griya Padi
+Jl. Kilas, Tj. Senang, Kota Bandar Lampung, Lampung 35141
+-5.357816, 105.269004
+
+Teluk Betung Barat	Perumahan Citra Garden
+No.05 Tlk. Betung Bar, Jalan Doktor Setia Budi, Negeri Olok Gading, Teluk Betung Barat, Negeri Olok Gading, Tlk. Betung Bar., Kota Bandar Lampung, Lampung 53233
+-5.445464, 105.247505
+			Emerald Hill Residence
+Jl. Laksamana R.E.Martadinata, Sukamaju, Tlk. Betung Tim., Bandar Lampung City, Lampung 35231
+-5.469460, 105.244382
+
+Teluk Betung Selatan   Citraland Bandar Lampung - Marketing Gallery
+Jalan Raden Imba Kusuma No. 789, Sumur Putri, Teluk Betung Selatan, Sukadana Ham, Tj. Karang Bar., Kota Bandar Lampung, Lampung 35215
+-5.429207, 105.237705
+			Perumahan Teguh Sentosa
+Jl. BANTEN, Keteguhan, Tlk. Betung Selatan., Kota Bandar Lampung, Lampung 35238
+-5.457987, 105.245215
+
+			
+
+		{lat:  -5.381538, 	lng: 105.259341, info: "Perumah Cluster Pujangga Alam Garden" },
+        {lat: -5.382941, 	lng: 105.210818, info: "Perumah Cluster Citra Mas"},
+        {lat: -5.384372, 	lng: 105.210113, info: "Perumah Cluster Harmonia Residence"},
+        {lat: -5.384150, 	lng: 105.210531, info: "Perumah Cluster Harmonia Residence"},
+        {lat:  -5.376364, 	lng: 105.265167, info: "Perumah Cluster Palmyra Residence"},
+        {lat: -5.368222, 	lng: 105.255929, info: "Perumah Cluster Perumahan Taman Suropati"},
+        {lat:  -5.393245, 	lng: 105.232352, info: "Perumah Cluster Griya Resik"},
+        {lat: -5.381981, 	lng: 105.224443, info: "Perumah Cluster Bukit Pramuka"},
+		{lat: -5.369890, 	lng: 105.219924, info: "Perumah Cluster Casalira Residence"},
+		{lat: -5.348127, 	lng: 105.242532, info: "Perumah Cluster Rara Estate"},
+		{lat: -5.398916, 	lng: 105.320760, info: "Perumah Cluster Puri Rupi Indah"},
+		{lat: -5.399362, 	lng: 105.317385, info: "Perumah Cluster Perum Puri Hijau"},
+		{lat: -5.385304,	lng: 105.315066, info: "Perumah Cluster Arum Lestari Permai 5"},
+		{lat: -5.393921,	lng: 105.278518, info: "Perumah Cluster Morotai Mas Residence"},
+        {lat: -5.385361, 	lng: 105.248484, info: "Perumah Cluster Alpabenia Residence Lampung"},
+        {lat: -5.416528, 	lng: 105.231303, info: "Perumah Cluster Royal Garden Bandar Lampung"},
+        {lat: -5.418230, 	lng: 105.245131, info: "Perumah Cluster Palapa Mansion"},
+        {lat: -5.430342, 	lng: 105.281487, info: "Perumah Cluster Bukit Alam Surya Residence"},
+        {lat: -5.416004, 	lng: 105.271782, info: "Perumah Cluster Klutum City"},
+        {lat: -5.353898, 	lng: 105.275330, info: "Perumah Cluster Pualam Magek Residence"},
+        {lat: -5.357816, 	lng: 105.269004, info: "Perumah Cluster Griya Padi"},
+        {lat: -5.445464, 	lng: 105.247505, info: "Perumah Cluster Perumahan Citra Garden"},
+        {lat: -5.469460, 	lng: 105.244382, info: "Perumah Cluster Emerald Hill Residence"},
+        {lat: -5.429207, 	lng: 105.237705, info: "Perumah Cluster Citraland "},
+        {lat: -5.457987, 	lng: 105.245215, info: "Perumah Cluster Perumahan Teguh Sentosa"},

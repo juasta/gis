@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <center><font size="80" face="Aharoni">Poligon Kec. Tj. Karang Timur </font></center>
+    <style>
+        #map{
+            height: 500px;
+            width: 100%;
+            background: rgb(202, 199, 199);
+        }
+        #save{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <!-- latitude<input type="text" id="latitude">
+    longitude<input type="text" id="latitude"> -->
+    <p>
+
+Sebelum pemekaran dan penyesuaian kecamatan di Kota Bandar Lampung, Kecamatan Tanjung Karang Timur terdiri atas 11 kelurahan, di antaranya:<br>
+1. Kebon Jeruk, dengan kode pos 35121<br>
+2. Kota Baru, dengan kode pos 35121<br>
+3. Campang Raya, dengan kode pos 35122 (berpindah ke kecamatan Sukabumi)<br>
+4. Kedamaian, dengan kode pos 35122 (berpindah ke kecamatan Kedamaian)<br>
+5. Jagabaya I, dengan kode pos 35123 (berpindah ke kecamatan Way Halim)<br>
+6. Sawah Brebes, dengan kode pos 35124<br>
+7. Sawah Lama, dengan kode pos 35125<br>
+8. Tanjung Agung, dengan kode pos 35126 (sebagian dari kelurahan ini berpindah ke kecamatan Kedamaian menjadi kelurahan Tanjung Agung Raya)<br>
+9. Rawa Laut, dengan kode pos 35127 (berpindah ke kecamatan Enggal)<br>
+10. Tanjung Gading, dengan kode pos 35128 (berpindah ke kecamatan Kedamaian)<br>
+11. Tanjung Raya, dengan kode pos 35128 (berpindah ke kecamatan Kedamaian)<br>
+
+Sehingga setelah dilakukan pemekaran dan penyesuaian jumlah kecamatan dan kelurahan di Kota Bandar Lampung, kecamatan Tanjung Karang Timur hanya menyisakan 5 kelurahan saja, yaitu: <br>
+1. Kebon Jeruk, dengan kode pos 35121<br>
+2. Kota Baru, dengan kode pos 35121<br>
+3. Sawah Brebes, dengan kode pos 35124<br>
+4. Sawah Lama, dengan kode pos 35125<br>
+        </p>
+        
+       
+  
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB2K94D0E0I_GdOXFI6ZfjQ7759ynjAte4",
+    authDomain: "poligon-tj-karang-timur.firebaseapp.com",
+    databaseURL: "https://poligon-tj-karang-timur.firebaseio.com",
+    projectId: "poligon-tj-karang-timur",
+    storageBucket: "",
+    messagingSenderId: "437447798356"
+  };
+  firebase.initializeApp(config);
+
+var db              = firebase.database();
+var dataRef         = db.ref('perumahancluster');
+var newPolygon      = null;
+var arrayPolygon    = [];
+var map             = null;
+var coords          = [];
+var markers         = [];
+var center          = {lat:-5.419778,   lng:105.288302}; 
+
+dataRef.on('value', updateInfo, showErr);
+
+function initMap(){
+    map=new google.maps.Map(document.getElementById('map'),{
+        zoom:12,
+        center:center
+    });
+
+    map.addListener('click', function (e) {
+        var latLng = e.latLng;
+        coords.push({lat: latLng.lat(), lng: latLng.lng()});
+        markers.push(createMarker({lat: latLng.lat(), lng: latLng.lng()}));
+    });
+}
+
+function createMarker(coord){
+    var marker = new google.maps.Marker(
+        {
+            position:coord,
+            map: map
+        }
+    );
+    return marker;
+}
+
+document.getElementById("save").addEventListener("click",function(){
+    var lines = {points:coords};
+    arrayPolygon.forEach(function(data) {
+        data.setMap(null);
+    });
+    markers.forEach(function(data){
+        data.setMap(null);
+    });
+
+    dataRef.push(
+        {
+            type: 'polyline',
+            geometry: lines
+        }
+    );
+    coords = [];
+});
+
+function updateInfo(data){
+    data.forEach(function(datamarker) {
+        arrayPolygon.push(createPolygon(datamarker.val().geometry.points));
+    });
+}
+function showErr(err){
+    console.log(err);
+}
+
+function createPolygon(coord){
+    var tempPoly = new google.maps.Polygon({
+        paths: coord,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#0000FF',
+        fillOpacity: 0.35
+    });
+    tempPoly.setMap(map);
+    return tempPoly;
+}
+function updateInfo(data){
+    data.forEach(function(datamarker) {
+        arrayPolygon.push(createPolygon(datamarker.val().geometry.points));
+    });
+}
+function showErr(err){
+    console.log(err);
+}
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSG8IIzRHZEsGLxJsXzifx4XSbASLU8gw&callback=initMap"></script>
+</body>
+
+</html>

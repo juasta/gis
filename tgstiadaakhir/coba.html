@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sistem Informasi Perumahan Cluster di Bandar Lampung</title> 
+   
+    <script src="http://maps.googleapis.com/maps/api/js"></script> 
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Noto+Serif|Quicksand" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Anton|Gothic+A1|Noto+Serif|Quicksand" rel="stylesheet">
+    <style>
+            #map{
+                margin-bottom: 10px;
+                height: 450px;
+                width: 63%;
+                position : left;
+                background: rgb(202, 199, 199);
+            }
+            #save{
+                background-color: #FFE4E1;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            body {
+                background : rgba(255.255,255,0.7);
+                font-family: 'Gothic A1', sans-serif;
+                font-family: 'Noto Serif', serif;
+                font-family: 'Quicksand', sans-serif;
+            }
+            .info{
+                margin-top: 1px;
+                background-color : rgb(20, 140, 220);
+                color : rgb(241, 227, 169);
+                text-align: center;
+            }
+            .dropbtn {
+    background-color: rgba(233, 18, 136, 0.945);
+    color: white;
+    padding: 15px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00FFFF;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color:white ;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color:"gambar.png"}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #000000;
+}
+.button{
+    margin-bottom: 5px;
+}
+.judul{
+    font-family: 'Anton', sans-serif;
+}
+            </style>
+
+            
+</head>
+<body background="gambar.png">
+    <div class="judul">
+        <body bgcolor= #00FFFF>
+            <center><font size="80" face="Aharoni">Sistem Informasi Perumahan Cluster di Bandar Lampung</font></center>
+        <center>
+            <div class="dropdown">
+                    <button class="dropbtn">HOME</button>
+                                    <div class="dropdown-content">
+                                        <a href="coba.html">Home</a>
+                                    </div>
+                                  </div>
+                                  <div class="dropdown">
+                                    <button class="dropbtn">Marker</button>
+                                    <div class="dropdown-content">
+                                        <a href="clustermaker-kedamaian.html">Kec kedamaian</a>
+                                        <a href="clustermaker-kedaton.html">Kec kedaton</a> 
+                                        <a href="clustermaker-kemiling.html">Kec kemiling</a>
+                                        <a href="clustermaker-labuhanratu.html">Kec labuhanRatu</a>
+                                        <a href="clustermaker-langkapura.html">Kec langkapura</a>
+                                        <a href="clustermaker-Rajabasah.html">Kec rajabasa</a>
+                                        <a href="clustermaker-Sukabumi.html">Kec sukabumi</a>
+                                        <a href="clustermaker-Sukarame.html">Kec sukarame</a>
+                                        <a href="clustermaker-TanjungSenang.html">Kec Tanjung Senang</a>
+                                        <a href="clustermaker-Teluk.html">Kec Teluk</a>
+                                        <a href="clustermaker-TKB.html">Kec TKB</a>
+                                        <a href="clustermaker-TKP.html">Kec TKP</a>
+                                        <a href="clustermaker-TKT.html">Kec TKT</a> 
+                                    </div>
+                                  </div>
+                                  <div class="dropdown">
+                                    <button class="dropbtn">GeoJson</button>
+                                    <div class="dropdown-content">
+                                      <a href="geojsonprumclus.html">Tampilan GeoJson</a>
+                                    </div>
+                                  </div>
+
+                                  <div class="dropdown">
+                                    <button class="dropbtn">Poligon</button>
+                                    <div class="dropdown-content">
+                                        <a href="poligon-kedamaian.html">Kec. kedamaian</a>
+                                        <a href="poligon-Perumkedaton.html">Kec kedaton</a> 
+                                        <a href="poligon-perum kemiling.html">Kec kemiling</a>
+                                        <a href="poligon-perumlabuhanratu.html">Kec labuhanRatu</a>
+                                        <a href="poligon-langkapura.html">Kec langkapura</a>
+                                        <a href="Poligon-Rajabasa.html">Kec rajabasa</a>
+                                        <a href="poligon-sukabumi.html">Kec sukabumi</a>
+                                        <a href="poligon-Sukarame.html">Kec sukarame</a>
+                                        <a href="poligon-TanjungSenang.html">Kec Tanjung Senang</a>
+                                        <a href="poligon-Teluk.html">Kec Teluk</a>
+                                        <a href="poligon-TKB.html">Kec TKB</a>
+                                        <a href="poligon-TKP.html">Kec TKP</a>
+                                        <a href="poligon-TKT.html">Kec TKT</a> 
+                                        
+                                    </div>
+                                </div>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">Tentang </button>
+                                        <div class="dropdown-content">
+                                          <a href="1617051007.html">Elva Juasta</a>
+                                          <a href="1617051136.html">Ajijah</a>
+                                          <a href="1617051042.html">Hana Salsa Billa</a>
+                                          <a href="1617051052.html">Rizka Amalia</a>
+
+                                        </div>
+                                    </div>
+
+                                        <div class="dropdown">
+                                            <button class="dropbtn">Direction</button>
+                                            <div class="dropdown-content">
+                                                <a href="directioncluster.html">Direction</a>
+                                            </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="dropdown">
+                                        <button class="dropbtn">Overlay</button>
+                                        <div class="dropdown-content">
+                                            <a href="overlay-alam.html">Perumahan Alam Intan</a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                      <form id="search" action="http://vclass.unila.ac.id/course/search.php" method="GET">
+                                        <div class="nav-divider-left"></div>							
+                                            <input id="coursesearchbox" type="text" onFocus="if(this.value =='Search courses' ) this.value=''" onBlur="if(this.value=='') this.value='Search courses'" value="Search courses" name="search">
+                                            <input type="submit" value="">							
+                                        </form>
+                        
+                </center>
+    
+            
+             
+            <header style="display:block;border:10px red">
+                          </header>
+    <center>
+    <div id="map"> </div> </center>
+    
+    <!-- latitude<input type="text" id="latitude">
+    longitude<input type="text" id="latitude"> -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA2ZPc949EFMTmr-G9_h62yfbarermXfeM",
+    authDomain: "sigprak-e1936.firebaseapp.com",
+    databaseURL: "https://sigprak-e1936.firebaseio.com",
+    projectId: "sigprak-e1936",
+    storageBucket: "sigprak-e1936.appspot.com",
+    messagingSenderId: "62595149343"
+  };
+  firebase.initializeApp(config);
+
+
+
+var db              = firebase.database();
+var dataRef         = db.ref('prak');
+var newPolygon      = null;
+var arrayPolygon    = [];
+var map             = null;
+var coords          = [];
+var markers         = [];
+var center          = {lat:-5.395013, lng:105.266287};
+
+dataRef.on('value', updateInfo, showErr);
+
+function initMap(){
+    map=new google.maps.Map(document.getElementById('map'),{
+        zoom:13,
+        center:center
+    });
+
+    map.addListener('click', function (e) {
+        var latLng = e.latLng;
+        coords.push({lat: latLng.lat(), lng: latLng.lng()});
+        markers.push(createMarker({lat: latLng.lat(), lng: latLng.lng()}));
+    });
+}
+
+function createMarker(coord){
+    var marker = new google.maps.Marker(
+        {
+            position:coord,
+            map: map
+        }
+    );
+    return marker;
+}
+
+</script>
+<script async defer 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSG8IIzRHZEsGLxJsXzifx4XSbASLU8gw&callback=initMap"></script>
+
+
+<br>
+<div class="info">
+<p>By : Elva Juasta, Ajijah, Hana Sala Billa, Rizka Amalia </p>
+</div>
+<div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website_tugassighasilpemilujakarta&amp;utm_content=footer_img"><img src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"  alt="www.000webhost.com"></a></div></body>
+
+</html>
